@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./bg1.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px); /* Apply the blur effect */
+  z-index: -1; /* Ensure the background stays behind the content */
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-100%); /* Start above the screen */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* End at the original position */
+    opacity: 1;
+  }
+}
+
+.slide-in-top {
+  animation: slide-in-top 1s ease-out forwards; /* 1s duration, ease-out easing */
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slide-in-right 1s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
